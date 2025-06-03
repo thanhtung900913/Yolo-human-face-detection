@@ -1,0 +1,173 @@
+/* Statistics panel styles */
+
+/* Stats container */
+.stats-container {
+    background: white;
+    border-radius: var(--border-radius);
+    padding: 15px;
+    box-shadow: var(--box-shadow);
+}
+
+/* Stats heading */
+.stats-container h3 {
+    color: var(--primary-color);
+    margin-top: 0;
+    margin-bottom: 15px;
+    font-size: 1.2rem;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 8px;
+}
+
+/* Stats items */
+.stat-item {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+    font-size: 1.1rem;
+}
+
+.stat-label {
+    font-weight: 600;
+}
+
+.stat-value {
+    color: var(--primary-color);
+    font-weight: 700;
+    font-size: 1.2rem;
+}
+
+/* Emotion statistics styling */
+.emotions-stats {
+    margin-top: 15px;
+    border-top: 1px solid #eee;
+    padding-top: 10px;
+    display: block;
+}
+
+.emotions-stats h4 {
+    margin-bottom: 8px;
+    color: var(--primary-color);
+    font-size: 1.1rem;
+}
+
+.emotion-stat-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 5px;
+    font-size: 0.95rem;
+}
+
+.emotion-indicator {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    margin-right: 8px;
+}
+
+.emotion-name {
+    flex: 1;
+    font-weight: 500;
+}
+
+.emotion-count {
+    font-weight: 700;
+    color: var(--primary-color);
+}
+
+/* Emotion stats grid for mobile */
+.emotion-stats-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
+}
+
+/* Action statistics styling */
+.actions-stats {
+    margin-top: 15px;
+    border-top: 1px solid #eee;
+    padding-top: 10px;
+}
+
+.actions-stats h4 {
+    margin-bottom: 8px;
+    color: var(--primary-color);
+    font-size: 1.1rem;
+}
+
+.action-stat-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 5px;
+    font-size: 0.95rem;
+}
+
+.action-indicator {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    margin-right: 8px;
+}
+
+.action-name {
+    flex: 1;
+    font-weight: 500;
+}
+
+.action-count {
+    font-weight: 700;
+    color: var(--primary-color);
+}
+
+/* Mobile specific styles */
+@media (max-width: 1023px) {
+    /* Compact action stats on mobile */
+    .action-stat-item {
+        display: inline-flex;
+        margin-right: 10px;
+        margin-bottom: 3px;
+        font-size: 0.9rem;
+    }
+}
+
+/* Mobile specific styles */
+@media (max-width: 1023px) {
+    /* Stats header with consistent height */
+    .stats-container h3 {
+        flex-shrink: 0; /* Prevent header from shrinking */
+        margin-bottom: 8px;
+        height: 30px; /* Fixed height for header */
+        font-size: 1.1rem;
+        padding-bottom: 5px;
+    }
+    
+    .stats-container {
+        padding: 10px;
+    }
+    
+    /* Keep emotion stats container within the scrollable area */
+    .emotions-stats {
+        margin-top: 10px;
+        max-height: none; /* Remove max-height as container is now limited by parent */
+        border-top: 1px solid #eee;
+        padding-top: 8px;
+    }
+    
+    /* Compact emotion stats on mobile */
+    .emotion-stat-item {
+        display: inline-flex;
+        margin-right: 10px;
+        margin-bottom: 3px;
+        font-size: 0.9rem;
+    }
+}
+
+/* Desktop specific styles */
+@media (min-width: 1024px) {
+    .stats-container .stat-item {
+        margin-bottom: 15px;
+    }
+    
+    .emotions-stats {
+        max-height: 300px; /* More space on desktop */
+    }
+}

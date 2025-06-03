@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Face & Person Detection System</title>
+    <link rel="stylesheet" href="/static/css/style.css">
+</head>
+<body>
+    <div class="loading-overlay" id="loadingOverlay">
+        <div class="spinner"></div>
+        <div>Đang khởi động hệ thống...</div>
+    </div>
+
+    <div class="header">
+        <h1>Hệ Thống Nhận Diện Người & Khuôn Mặt</h1>
+        <p class="subtitle">Sử dụng mô hình YOLO với xử lý thời gian thực</p>
+    </div>
+
+    <div class="main-container">
+        <!-- Left column for desktop: Statistics -->
+        <div class="stats-container">
+            <h3>Thống kê</h3>
+            <!-- New wrapper div for scrollable content -->
+            <div class="stats-content-wrapper">
+                <div class="stat-item">
+                    <span class="stat-label">Số người:</span>
+                    <span class="stat-value" id="personCount">0</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-label">Số khuôn mặt:</span>
+                    <span class="stat-value" id="faceCount">0</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-label">FPS:</span>
+                    <span class="stat-value" id="fpsCounter">0</span>
+                </div>
+                <div id="emotionsStats" class="emotions-stats">
+                    <!-- Thống kê cảm xúc sẽ được thêm vào đây -->
+                </div>
+                <div id="actionsStats" class="actions-stats">
+                    <!-- Thống kê hành vi sẽ được thêm vào đây -->
+                </div>
+            </div>
+        </div>
+
+        <!-- Center column: Video display -->
+        <div class="video-section">
+            <!-- Video container wrapper for positioning -->
+            <div class="video-container-wrapper">
+                <div id="videoContainer">
+                    <video id="webcam" autoplay muted playsinline></video>
+                    <canvas id="overlay"></canvas>
+                </div>
+            </div>
+        </div>
+
+        <!-- Right column: Controls -->
+        <div class="controls-section">
+            <div class="control-group">
+                <h3>Cài đặt camera</h3>
+
+                <!-- Container cho dropdown (hiển thị trên desktop) -->
+                <div id="cameraSelectContainer">
+                    <select id="cameraSelect" class="camera-select">
+                        <option value="">Đang tải camera...</option>
+                    </select>
+                </div>
+                
+                <!-- Container cho toggle (hiển thị trên mobile) -->
+                <div id="toggleCameraContainer">
+                    <div class="control-row">
+                        <span class="control-label">Camera sau:</span>
+                        <label class="toggle-switch">
+                            <input type="checkbox" id="toggleRearCamera">
+                            <span class="slider"></span>
+                        </label>
+                    </div>
+                </div>
+
+                <button id="startButton" class="button">Bắt đầu Camera</button>
+                <button id="stopButton" class="button secondary" style="margin-top: 10px;">Dừng Camera</button>
+            </div>
+
+            <div class="control-group">
+                <h3>Tùy chỉnh hiển thị</h3>
+                <div class="control-row">
+                    <span class="control-label">Hiển thị người:</span>
+                    <label class="toggle-switch">
+                        <input type="checkbox" id="togglePerson" checked>
+                        <span class="slider"></span>
+                    </label>
+                </div>
+                <div class="control-row">
+                    <span class="control-label">Hiển thị khuôn mặt:</span>
+                    <label class="toggle-switch">
+                        <input type="checkbox" id="toggleFace" checked>
+                        <span class="slider"></span>
+                    </label>
+                </div>
+                <div class="control-row">
+                    <span class="control-label">Hiển thị độ tin cậy:</span>
+                    <label class="toggle-switch">
+                        <input type="checkbox" id="toggleConfidence" checked>
+                        <span class="slider"></span>
+                    </label>
+                </div>
+                <div class="control-row">
+                    <span class="control-label">Hiển thị cảm xúc:</span>
+                    <label class="toggle-switch">
+                        <input type="checkbox" id="toggleEmotions" checked>
+                        <span class="slider"></span>
+                    </label>
+                </div>
+                <div class="control-row">
+                    <span class="control-label">Hiển thị hành vi:</span>
+                    <label class="toggle-switch">
+                        <input type="checkbox" id="toggleActions" checked>
+                        <span class="slider"></span>
+                    </label>
+                </div>
+                <div class="control-row">
+                    <span class="control-label">Hiển thị tên:</span>
+                    <label class="toggle-switch">
+                        <input type="checkbox" id="toggleNames" checked>
+                        <span class="slider"></span>
+                    </label>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="footer">
+        <p>© 2025 YOLO Human Face Detection System | Powered by FastAPI & YOLO</p>
+    </div>
+
+    <!-- Load JavaScript modules -->
+    <script type="module" src="/static/js/main.js"></script>
+</body>
+</html>

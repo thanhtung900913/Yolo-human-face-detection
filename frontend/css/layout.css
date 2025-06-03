@@ -1,0 +1,95 @@
+/* Layout CSS: Main container and responsive layout structure */
+
+/* Main container - mobile first approach */
+.main-container {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    max-width: 1400px; /* Increased to accommodate 3 columns */
+    gap: 20px;
+    margin: 0 auto; /* Center the container */
+}
+
+/* Video section styling */
+.video-section {
+    width: 100%;
+}
+
+/* Video container wrapper for positioning */
+.video-container-wrapper {
+    position: relative;
+    width: 100%;
+}
+
+/* Desktop layout (three-column layout) */
+@media (min-width: 1024px) {
+    .main-container {
+        display: grid;
+        grid-template-columns: 250px 1fr 300px; /* Left stats, center video, right controls */
+        grid-template-areas: "stats video controls";
+        gap: 20px;
+        align-items: start;
+    }
+    
+    /* Left column: Stats */
+    .stats-container {
+        grid-area: stats;
+        height: auto;
+        position: sticky;
+        top: 20px; /* Stick to top with some padding */
+        margin-top: 0;
+    }
+    
+    /* Center column: Video */
+    .video-section {
+        grid-area: video;
+    }
+    
+    /* Right column: Controls */
+    .controls-section {
+        grid-area: controls;
+        position: sticky;
+        top: 20px; /* Stick to top with some padding */
+    }
+    
+    /* Desktop specific stats content wrapper */
+    .stats-content-wrapper {
+        height: auto; /* Auto height on desktop */
+    }
+}
+
+/* Mobile layout with fixed heights to prevent shifting */
+@media (max-width: 1023px) {
+    /* Header stays at the top */
+    .header {
+        margin-bottom: 10px;
+    }
+    
+    /* Stats at the top in mobile view with fixed height */
+    .stats-container {
+        order: 1;
+        margin-bottom: 15px;
+        height: 180px; /* Fixed height to prevent shifting */
+        display: flex;
+        flex-direction: column;
+        overflow: hidden; /* Prevent overflow from causing shifts */
+    }
+    
+    /* Make the content area scrollable without changing outer container height */
+    .stats-content-wrapper {
+        flex: 1;
+        overflow-y: auto; /* Scrollable content */
+        padding-right: 5px; /* Space for scrollbar */
+    }
+    
+    /* Video comes after stats */
+    .video-section {
+        order: 2; 
+        margin-top: 0; /* Remove margin to avoid extra spacing */
+    }
+    
+    /* Controls come last */
+    .controls-section {
+        order: 3;
+    }
+}

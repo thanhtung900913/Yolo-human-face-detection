@@ -1,0 +1,39 @@
+/* Header and Footer styles */
+
+/* Header styles */
+.header {
+    text-align: center;
+    margin-bottom: 20px;
+    width: 100%;
+}
+
+.header h1 {
+    color: var(--primary-color);
+    margin-bottom: 10px;
+}
+
+.subtitle {
+    color: #666;
+    font-size: 1.1rem;
+}
+
+/* Footer styles */
+.footer {
+    margin-top: 30px;
+    text-align: center;
+    color: #666;
+    font-size: 0.9rem;
+}
+
+/* Mobile adjustments */
+@media (max-width: 1023px) {
+    /* Hide header completely on mobile */
+    .header {
+        display: none;
+    }
+    
+    .footer {
+        margin-top: 20px;
+        font-size: 0.8rem;
+    }
+}

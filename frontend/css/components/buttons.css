@@ -1,0 +1,42 @@
+/* Button styles */
+
+/* Common button styling */
+.button {
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: var(--border-radius);
+    cursor: pointer;
+    font-weight: 600;
+    transition: background-color 0.3s;
+    width: 100%;
+    margin-top: 10px;
+}
+
+.button:hover {
+    background-color: #2980b9;
+}
+
+/* Secondary button style */
+.button.secondary {
+    background-color: var(--secondary-color);
+}
+
+.button.secondary:hover {
+    background-color: #27ae60;
+}
+
+/* Disabled button state */
+.button:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+    opacity: 0.7;
+}
+
+/* Mobile adjustments */
+@media (max-width: 1023px) {
+    .button {
+        padding: 12px 15px; /* Slightly larger touch target */
+    }
+}

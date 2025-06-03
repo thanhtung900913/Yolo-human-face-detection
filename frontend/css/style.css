@@ -1,0 +1,16 @@
+/* Main CSS file that imports all component files */
+
+/* Import base styles and variables */
+@import url('base.css');
+
+/* Import layout styles */
+@import url('layout.css');
+
+/* Import component styles */
+@import url('components/header-footer.css');
+@import url('components/video.css');
+@import url('components/stats.css');
+@import url('components/controls.css');
+@import url('components/toggles.css');
+@import url('components/buttons.css');
+@import url('components/loading.css');
